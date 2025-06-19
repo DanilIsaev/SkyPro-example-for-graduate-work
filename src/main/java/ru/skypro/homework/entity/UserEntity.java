@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +23,10 @@ public class User {
     private Role role;
 
 
-    public User() {
+    public UserEntity() {
     }
 
-    public User(Integer id, String email, String firstName, String lastName, String phone, String image, String password, Role role) {
+    public UserEntity(Integer id, String email, String firstName, String lastName, String phone, String image, String password, Role role) {
         this.id = id;
         this.email = email;
         this.firstName = firstName;
@@ -105,7 +105,7 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
+        UserEntity user = (UserEntity) o;
         return Objects.equals(id, user.id) && Objects.equals(email, user.email) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(phone, user.phone) && Objects.equals(image, user.image) && Objects.equals(password, user.password) && role == user.role;
     }
 
