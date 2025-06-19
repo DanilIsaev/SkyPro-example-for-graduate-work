@@ -7,7 +7,13 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ru.skypro.homework.dto.*;
+import ru.skypro.homework.dto.ad.Ad;
+import ru.skypro.homework.dto.ad.Ads;
+import ru.skypro.homework.dto.ad.CreateOrUpdateAd;
+import ru.skypro.homework.dto.ad.ExtendedAd;
+import ru.skypro.homework.dto.comment.Comment;
+import ru.skypro.homework.dto.comment.Comments;
+import ru.skypro.homework.dto.comment.CreateOrUpdateComment;
 
 @RestController
 @Tag(name = "Объявления")

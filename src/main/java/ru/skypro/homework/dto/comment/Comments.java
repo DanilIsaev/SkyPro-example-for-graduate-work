@@ -1,12 +1,13 @@
-package ru.skypro.homework.dto;
+
+package ru.skypro.homework.dto.comment;
 
 import java.util.List;
 import java.util.Objects;
 
-public class Ads {
+public class Comments {
 
     private Integer count;
-    private List<Ad> results;
+    private List<Comment> results;
 
     public Integer getCount() {
         return count;
@@ -16,11 +17,11 @@ public class Ads {
         this.count = count;
     }
 
-    public List<Ad> getResults() {
+    public List<Comment> getResults() {
         return results;
     }
 
-    public void setResults(List<Ad> results) {
+    public void setResults(List<Comment> results) {
         this.results = results;
     }
 
@@ -28,8 +29,8 @@ public class Ads {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Ads ads = (Ads) o;
-        return Objects.equals(count, ads.count) && Objects.equals(results, ads.results);
+        Comments comments = (Comments) o;
+        return Objects.equals(count, comments.count) && Objects.equals(results, comments.results);
     }
 
     @Override
@@ -39,7 +40,7 @@ public class Ads {
 
     @Override
     public String toString() {
-        return "Ads{" +
+        return "Comments{" +
                 "count=" + count +
                 ", results=" + results +
                 '}';

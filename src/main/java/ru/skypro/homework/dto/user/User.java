@@ -1,5 +1,7 @@
 
-package ru.skypro.homework.dto;
+package ru.skypro.homework.dto.user;
+
+import ru.skypro.homework.dto.Role;
 
 import java.util.Objects;
 
