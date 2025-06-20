@@ -2,7 +2,7 @@ package ru.skypro.homework.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import ru.skypro.homework.dto.Register;
+import ru.skypro.homework.dto.auth.Register;
 
 
 public interface CustomUserDetailsManager {

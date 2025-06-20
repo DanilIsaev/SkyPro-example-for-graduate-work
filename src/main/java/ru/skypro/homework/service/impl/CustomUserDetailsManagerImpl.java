@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.skypro.homework.dto.Register;
+import ru.skypro.homework.dto.auth.Register;
 import ru.skypro.homework.entity.AuthorityEntity;
 import ru.skypro.homework.entity.UserEntity;
 import ru.skypro.homework.repository.AuthorityRepository;
