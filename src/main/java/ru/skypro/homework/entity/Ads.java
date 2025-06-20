@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Table(name = "ads")
-public class AdEntity {
+public class Ads {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,17 +19,19 @@ public class AdEntity {
     private int price;
     private String title;
     private String description;
+    @Getter
     private String image; // Assuming image is stored as a String path or URL
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserEntity author;
+    private Users author;
 
-    public AdEntity(int price, String title, String description, String image, UserEntity author) {
+    public Ads(int price, String title, String description, String image, Users author) {
         this.price = price;
         this.title = title;
         this.description = description;
         this.image = image;
         this.author = author;
     }
+
 }

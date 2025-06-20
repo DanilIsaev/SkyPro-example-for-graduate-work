@@ -8,7 +8,7 @@ import org.springframework.validation.annotation.Validated;
  * ExtendedAd
  */
 @Validated
-public class ExtendedAd   {
+public class ExtendedAdDTO {
   @JsonProperty("pk")
   private Integer pk = null;
 
@@ -36,7 +36,7 @@ public class ExtendedAd   {
   @JsonProperty("title")
   private String title = null;
 
-  public ExtendedAd pk(Integer pk) {
+  public ExtendedAdDTO pk(Integer pk) {
     this.pk = pk;
     return this;
   }
@@ -54,7 +54,7 @@ public class ExtendedAd   {
     this.pk = pk;
   }
 
-  public ExtendedAd authorFirstName(String authorFirstName) {
+  public ExtendedAdDTO authorFirstName(String authorFirstName) {
     this.authorFirstName = authorFirstName;
     return this;
   }
@@ -72,7 +72,7 @@ public class ExtendedAd   {
     this.authorFirstName = authorFirstName;
   }
 
-  public ExtendedAd authorLastName(String authorLastName) {
+  public ExtendedAdDTO authorLastName(String authorLastName) {
     this.authorLastName = authorLastName;
     return this;
   }
@@ -90,7 +90,7 @@ public class ExtendedAd   {
     this.authorLastName = authorLastName;
   }
 
-  public ExtendedAd description(String description) {
+  public ExtendedAdDTO description(String description) {
     this.description = description;
     return this;
   }
@@ -108,7 +108,7 @@ public class ExtendedAd   {
     this.description = description;
   }
 
-  public ExtendedAd email(String email) {
+  public ExtendedAdDTO email(String email) {
     this.email = email;
     return this;
   }
@@ -126,7 +126,7 @@ public class ExtendedAd   {
     this.email = email;
   }
 
-  public ExtendedAd image(String image) {
+  public ExtendedAdDTO image(String image) {
     this.image = image;
     return this;
   }
@@ -144,7 +144,7 @@ public class ExtendedAd   {
     this.image = image;
   }
 
-  public ExtendedAd phone(String phone) {
+  public ExtendedAdDTO phone(String phone) {
     this.phone = phone;
     return this;
   }
@@ -162,7 +162,7 @@ public class ExtendedAd   {
     this.phone = phone;
   }
 
-  public ExtendedAd price(Integer price) {
+  public ExtendedAdDTO price(Integer price) {
     this.price = price;
     return this;
   }
@@ -180,7 +180,7 @@ public class ExtendedAd   {
     this.price = price;
   }
 
-  public ExtendedAd title(String title) {
+  public ExtendedAdDTO title(String title) {
     this.title = title;
     return this;
   }
@@ -206,16 +206,16 @@ public class ExtendedAd   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExtendedAd extendedAd = (ExtendedAd) o;
-    return Objects.equals(this.pk, extendedAd.pk) &&
-        Objects.equals(this.authorFirstName, extendedAd.authorFirstName) &&
-        Objects.equals(this.authorLastName, extendedAd.authorLastName) &&
-        Objects.equals(this.description, extendedAd.description) &&
-        Objects.equals(this.email, extendedAd.email) &&
-        Objects.equals(this.image, extendedAd.image) &&
-        Objects.equals(this.phone, extendedAd.phone) &&
-        Objects.equals(this.price, extendedAd.price) &&
-        Objects.equals(this.title, extendedAd.title);
+    ExtendedAdDTO extendedAdDTO = (ExtendedAdDTO) o;
+    return Objects.equals(this.pk, extendedAdDTO.pk) &&
+        Objects.equals(this.authorFirstName, extendedAdDTO.authorFirstName) &&
+        Objects.equals(this.authorLastName, extendedAdDTO.authorLastName) &&
+        Objects.equals(this.description, extendedAdDTO.description) &&
+        Objects.equals(this.email, extendedAdDTO.email) &&
+        Objects.equals(this.image, extendedAdDTO.image) &&
+        Objects.equals(this.phone, extendedAdDTO.phone) &&
+        Objects.equals(this.price, extendedAdDTO.price) &&
+        Objects.equals(this.title, extendedAdDTO.title);
   }
 
   @Override

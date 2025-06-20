@@ -4,10 +4,10 @@ package ru.skypro.homework.dto.comment;
 import java.util.List;
 import java.util.Objects;
 
-public class Comments {
+public class CommentsDTO {
 
     private Integer count;
-    private List<Comment> results;
+    private List<CommentDTO> results;
 
     public Integer getCount() {
         return count;
@@ -17,11 +17,11 @@ public class Comments {
         this.count = count;
     }
 
-    public List<Comment> getResults() {
+    public List<CommentDTO> getResults() {
         return results;
     }
 
-    public void setResults(List<Comment> results) {
+    public void setResults(List<CommentDTO> results) {
         this.results = results;
     }
 
@@ -29,8 +29,8 @@ public class Comments {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Comments comments = (Comments) o;
-        return Objects.equals(count, comments.count) && Objects.equals(results, comments.results);
+        CommentsDTO commentsDTO = (CommentsDTO) o;
+        return Objects.equals(count, commentsDTO.count) && Objects.equals(results, commentsDTO.results);
     }
 
     @Override

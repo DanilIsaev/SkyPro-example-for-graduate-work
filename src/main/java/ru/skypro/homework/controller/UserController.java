@@ -6,8 +6,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
-import ru.skypro.homework.dto.user.NewPassword;
-import ru.skypro.homework.dto.user.User;
+import ru.skypro.homework.dto.user.NewPasswordDTO;
+import ru.skypro.homework.dto.user.UserDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,10 +20,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class UserController {
 
     @PostMapping("/set_password")
-    public ResponseEntity<NewPassword> setPassword(@RequestBody NewPassword newPassword) {
+    public ResponseEntity<NewPasswordDTO> setPassword(@RequestBody NewPasswordDTO newPasswordDTO) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         // Your implementation here
-        return ResponseEntity.ok(new NewPassword());
+        return ResponseEntity.ok(new NewPasswordDTO());
     }
 
     @GetMapping("/me")
@@ -32,10 +32,10 @@ public class UserController {
                     @ApiResponse(responseCode = "200", description = "OK"),
                     @ApiResponse(responseCode = "401", description = "Unauthorized")
             })
-    public ResponseEntity<User> getUser() {
+    public ResponseEntity<UserDTO> getUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         // Your implementation here
-        return ResponseEntity.ok(new User());
+        return ResponseEntity.ok(new UserDTO());
     }
 
     @PatchMapping("/me")
@@ -44,10 +44,10 @@ public class UserController {
                     @ApiResponse(responseCode = "200", description = "OK"),
                     @ApiResponse(responseCode = "401", description = "Unauthorized")
             })
-    public ResponseEntity<User> updateUser(@RequestBody User updatedUser) {
+    public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO updatedUserDTO) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         // Your implementation here
-        return ResponseEntity.ok(updatedUser);
+        return ResponseEntity.ok(updatedUserDTO);
     }
 
     @PatchMapping("/me/image")

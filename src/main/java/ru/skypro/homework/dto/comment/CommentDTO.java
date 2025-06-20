@@ -1,16 +1,17 @@
 package ru.skypro.homework.dto.comment;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Comment {
+public class CommentDTO {
     private Integer author;
     private String authorImage;
     private String authorFirstName;
-    private Long createdAt;
+    private LocalDateTime createdAt;
     private Integer pk;
     private String text;
 
-    public Comment() {
+    public CommentDTO() {
     }
 
     public Integer getAuthor() {
@@ -37,11 +38,11 @@ public class Comment {
         this.authorFirstName = authorFirstName;
     }
 
-    public Long getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Long createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -65,8 +66,8 @@ public class Comment {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Comment comment = (Comment) o;
-        return Objects.equals(author, comment.author) && Objects.equals(authorImage, comment.authorImage) && Objects.equals(authorFirstName, comment.authorFirstName) && Objects.equals(createdAt, comment.createdAt) && Objects.equals(pk, comment.pk) && Objects.equals(text, comment.text);
+        CommentDTO commentDTO = (CommentDTO) o;
+        return Objects.equals(author, commentDTO.author) && Objects.equals(authorImage, commentDTO.authorImage) && Objects.equals(authorFirstName, commentDTO.authorFirstName) && Objects.equals(createdAt, commentDTO.createdAt) && Objects.equals(pk, commentDTO.pk) && Objects.equals(text, commentDTO.text);
     }
 
     @Override

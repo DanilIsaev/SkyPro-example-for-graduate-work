@@ -7,13 +7,13 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ru.skypro.homework.dto.ad.Ad;
-import ru.skypro.homework.dto.ad.Ads;
-import ru.skypro.homework.dto.ad.CreateOrUpdateAd;
-import ru.skypro.homework.dto.ad.ExtendedAd;
-import ru.skypro.homework.dto.comment.Comment;
-import ru.skypro.homework.dto.comment.Comments;
-import ru.skypro.homework.dto.comment.CreateOrUpdateComment;
+import ru.skypro.homework.dto.ad.AdDTO;
+import ru.skypro.homework.dto.ad.AdsDTO;
+import ru.skypro.homework.dto.ad.CreateOrUpdateAdDTO;
+import ru.skypro.homework.dto.ad.ExtendedAdDTO;
+import ru.skypro.homework.dto.comment.CommentDTO;
+import ru.skypro.homework.dto.comment.CommentsDTO;
+import ru.skypro.homework.dto.comment.CreateOrUpdateCommentDTO;
 
 @RestController
 @Tag(name = "Объявления")
@@ -22,19 +22,19 @@ import ru.skypro.homework.dto.comment.CreateOrUpdateComment;
 public class AdsController {
 
     @GetMapping
-    public ResponseEntity<Ads> getAds() {
-        return ResponseEntity.ok(new Ads());
+    public ResponseEntity<AdsDTO> getAds() {
+        return ResponseEntity.ok(new AdsDTO());
     }
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Ad> addAd(@RequestPart("properties") CreateOrUpdateAd properties, @RequestPart("image") MultipartFile image) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(new Ad());
+    public ResponseEntity<AdDTO> addAd(@RequestPart("properties") CreateOrUpdateAdDTO properties, @RequestPart("image") MultipartFile image) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(new AdDTO());
     }
 
     @Operation(operationId = "getAds", summary = "Получить все объявления")
     @GetMapping("/{id}")
-    public ResponseEntity<ExtendedAd> getAd(@PathVariable Integer id) {
-        return ResponseEntity.ok(new ExtendedAd());
+    public ResponseEntity<ExtendedAdDTO> getAd(@PathVariable Integer id) {
+        return ResponseEntity.ok(new ExtendedAdDTO());
     }
 
     @Operation(operationId = "removeAd", summary = "Удалить объявление")
@@ -45,20 +45,20 @@ public class AdsController {
 
     @Operation(operationId = "updateAds", summary = "Обновить информацию об объявлении")
     @PatchMapping("/{id}")
-    public ResponseEntity<Ad> updateAd(@PathVariable Integer id, @RequestBody CreateOrUpdateAd createOrUpdateAd) {
-        return ResponseEntity.ok(new Ad());
+    public ResponseEntity<AdDTO> updateAd(@PathVariable Integer id, @RequestBody CreateOrUpdateAdDTO createOrUpdateAdDTO) {
+        return ResponseEntity.ok(new AdDTO());
     }
 
     @Operation(operationId = "getComments", summary = "Получить комментарии объявления")
     @GetMapping("/{id}/comments")
-    public ResponseEntity<Comments> getComments(@PathVariable Integer id) {
-        return ResponseEntity.ok(new Comments());
+    public ResponseEntity<CommentsDTO> getComments(@PathVariable Integer id) {
+        return ResponseEntity.ok(new CommentsDTO());
     }
 
     @Operation(operationId = "addComments", summary = "Добавить комментарий к объявлению")
     @PostMapping("/{id}/comments")
-    public ResponseEntity<Comment> addComment(@PathVariable Integer id, @RequestBody CreateOrUpdateComment createOrUpdateComment) {
-        return ResponseEntity.status(HttpStatus.OK).body(new Comment());
+    public ResponseEntity<CommentDTO> addComment(@PathVariable Integer id, @RequestBody CreateOrUpdateCommentDTO createOrUpdateCommentDTO) {
+        return ResponseEntity.status(HttpStatus.OK).body(new CommentDTO());
     }
 
     @Operation(operationId = "deleteComments", summary = "Удалить комментарий объявления")
@@ -69,13 +69,13 @@ public class AdsController {
 
     @Operation(operationId = "updateComments", summary = "Обновить комментарий объявления")
     @PatchMapping("/{adId}/comments/{commentId}")
-    public ResponseEntity<Comment> updateComment(@PathVariable Integer adId, @PathVariable Integer commentId, @RequestBody CreateOrUpdateComment createOrUpdateComment) {
-        return ResponseEntity.ok(new Comment());
+    public ResponseEntity<CommentDTO> updateComment(@PathVariable Integer adId, @PathVariable Integer commentId, @RequestBody CreateOrUpdateCommentDTO createOrUpdateCommentDTO) {
+        return ResponseEntity.ok(new CommentDTO());
     }
 
     @GetMapping("/me")
-    public ResponseEntity<Ads> getAdsMe() {
-        return ResponseEntity.ok(new Ads());
+    public ResponseEntity<AdsDTO> getAdsMe() {
+        return ResponseEntity.ok(new AdsDTO());
     }
 
     @Operation(operationId = "updateImage", summary = "Обновить картинку объявления")

@@ -3,10 +3,10 @@ package ru.skypro.homework.dto.ad;
 import java.util.List;
 import java.util.Objects;
 
-public class Ads {
+public class AdsDTO {
 
     private Integer count;
-    private List<Ad> results;
+    private List<AdDTO> results;
 
     public Integer getCount() {
         return count;
@@ -16,11 +16,11 @@ public class Ads {
         this.count = count;
     }
 
-    public List<Ad> getResults() {
+    public List<AdDTO> getResults() {
         return results;
     }
 
-    public void setResults(List<Ad> results) {
+    public void setResults(List<AdDTO> results) {
         this.results = results;
     }
 
@@ -28,7 +28,7 @@ public class Ads {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Ads ads = (Ads) o;
+        AdsDTO ads = (AdsDTO) o;
         return Objects.equals(count, ads.count) && Objects.equals(results, ads.results);
     }
 

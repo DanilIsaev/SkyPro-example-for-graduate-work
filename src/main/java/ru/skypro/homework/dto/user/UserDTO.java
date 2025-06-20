@@ -5,7 +5,7 @@ import ru.skypro.homework.dto.Role;
 
 import java.util.Objects;
 
-public class User {
+public class UserDTO {
 
     private Integer id;
     private String email;
@@ -15,7 +15,7 @@ public class User {
     private Role role;
     private String image;
 
-    public User() {
+    public UserDTO() {
     }
 
     public Integer getId() {
@@ -78,8 +78,8 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(email, user.email) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(phone, user.phone) && role == user.role && Objects.equals(image, user.image);
+        UserDTO userDTO = (UserDTO) o;
+        return Objects.equals(id, userDTO.id) && Objects.equals(email, userDTO.email) && Objects.equals(firstName, userDTO.firstName) && Objects.equals(lastName, userDTO.lastName) && Objects.equals(phone, userDTO.phone) && role == userDTO.role && Objects.equals(image, userDTO.image);
     }
 
     @Override
