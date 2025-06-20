@@ -13,7 +13,7 @@ import javax.persistence.Table;
  * Сущность для представления прав доступа пользователя в базе данных.
  */
 @Entity
-@Table(name = "users")
+@Table(name = "authorities")
 @Data
 @Builder
 @AllArgsConstructor
