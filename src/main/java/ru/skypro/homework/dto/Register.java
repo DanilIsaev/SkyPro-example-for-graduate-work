@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 import ru.skypro.homework.entity.Role;
 import ru.skypro.homework.entity.UserEntity;
 
-/**
- * DTO для регистрации нового пользователя.
- */
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -35,11 +33,7 @@ public class Register {
     @Schema(description = "роль пользователя")
     private Role role;
 
-    /**
-     * Преобразует DTO регистрации в сущность пользователя.
-     *
-     * @return Сущность пользователя.
-     */
+    
     public UserEntity toUserEntity() {
         return UserEntity
                 .builder()

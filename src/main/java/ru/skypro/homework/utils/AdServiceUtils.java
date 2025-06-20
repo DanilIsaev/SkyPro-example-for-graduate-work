@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 import ru.skypro.homework.entity.UserEntity;
 import ru.skypro.homework.repository.UserEntityRepository;
 
-/**
- * Утилитный сервис для работы с пользователями в контексте объявлений.
- */
+
 @Service
 @RequiredArgsConstructor
 public class AdServiceUtils {
@@ -19,12 +17,7 @@ public class AdServiceUtils {
 
     private final UserEntityRepository userRepository;
 
-    /**
-     * Обрабатывает аутентификационные данные пользователя и возвращает соответствующую сущность пользователя.
-     *
-     * @param authentication Аутентификационные данные пользователя.
-     * @return Сущность пользователя.
-     */
+    
     public UserEntity handleUser(Authentication authentication) {
         logger.info("Was invoked handle User method");
         UserDetails principal = (UserDetails) authentication.getPrincipal();

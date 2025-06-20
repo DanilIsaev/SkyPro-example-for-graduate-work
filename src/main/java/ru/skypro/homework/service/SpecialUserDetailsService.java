@@ -10,21 +10,13 @@ import ru.skypro.homework.repository.UserEntityRepository;
 
 import java.util.Objects;
 
-/**
- * Сервис для загрузки пользовательских данных в контекст Spring Security.
- */
+
 @Service
 @RequiredArgsConstructor
 public class SpecialUserDetailsService implements UserDetailsService {
     private final UserEntityRepository userEntityRepository;
 
-    /**
-     * Загружает пользователя по его имени (логину).
-     *
-     * @param username Имя пользователя (логин).
-     * @return Объект UserDetails, представляющий пользователя.
-     * @throws UsernameNotFoundException Если пользователь с указанным именем не найден.
-     */
+    
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // Находим пользователя в БД по email

@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * DTO для представления списка комментариев.
- */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,13 +20,7 @@ public class Comments {
 
     private List<Comment> results;
 
-    /**
-     * Создает объект Comments с указанным количеством комментариев и списком комментариев.
-     *
-     * @param countComments Общее количество комментариев.
-     * @param comments      Список комментариев.
-     * @return Объект Comments.
-     */
+    
     public Comments getComments(Integer countComments, ArrayList<Comment> comments) {
         return Comments.builder()
                 .count(countComments)

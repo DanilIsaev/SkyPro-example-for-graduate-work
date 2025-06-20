@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 import ru.skypro.homework.entity.CommentEntity;
 import ru.skypro.homework.entity.UserEntity;
 
-/**
- * DTO для представления комментария.
- */
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -34,13 +32,7 @@ public class Comment {
     @Schema(description = "текст комментария")
     private String text;
 
-    /**
-     * Преобразует сущность комментария в DTO.
-     *
-     * @param commentEntity Сущность комментария.
-     * @param userEntity    Сущность пользователя, автора комментария.
-     * @return DTO комментария.
-     */
+    
     public static Comment toDto(CommentEntity commentEntity, UserEntity userEntity) {
         return Comment.builder()
                 .pk(commentEntity.getPk())
@@ -52,11 +44,7 @@ public class Comment {
                 .build();
     }
 
-    /**
-     * Преобразует DTO комментария в сущность.
-     *
-     * @return Сущность комментария.
-     */
+    
     public CommentEntity toEntity() {
         return CommentEntity.builder()
                 .pk(pk)
