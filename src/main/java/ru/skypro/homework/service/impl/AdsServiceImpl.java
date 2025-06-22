@@ -7,10 +7,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.skypro.homework.dto.ad.Ad;
-import ru.skypro.homework.dto.ad.Ads;
 import ru.skypro.homework.dto.ad.CreateOrUpdateAd;
 import ru.skypro.homework.dto.ad.ExtendedAd;
-import ru.skypro.homework.entity.AdEntity;
+import ru.skypro.homework.entity.Ads;
 import ru.skypro.homework.entity.UserEntity;
 import ru.skypro.homework.repository.AdRepository;
 import ru.skypro.homework.repository.UserEntityRepository;
@@ -39,28 +38,28 @@ public class AdsServiceImpl implements AdsService {
         UserEntity user = adUtils.handleUser(authentication);
         String uniqueId = user.getEmail().concat("-").concat(createAd.getTitle());
         String link = new ImageMapper().mapFileToPath(image, uniqueId);
-        AdEntity adEntity = createAd.mapDtoToAdEntity(link, user.getId());
-        adRepository.save(adEntity);
-        return Ad.mapEntityToDto(adEntity);
+        Ads ads = createAd.mapDtoToAdEntity(link, user.getId());
+        adRepository.save(ads);
+        return Ad.mapEntityToDto(ads);
     }
 
     @Override
     public ExtendedAd getExtendedAd(Integer id, Authentication authentication) {
         logger.info("Was invoked get Ad info method");
         UserEntity user = adUtils.handleUser(authentication);
-        AdEntity adEntity = adRepository.findById(id).get();
-        return ExtendedAd.mapAdEntityToDto(adEntity, user);
+        Ads ads = adRepository.findById(id).get();
+        return ExtendedAd.mapAdEntityToDto(ads, user);
     }
 
     @Override
-    public Ads getAdsDto() {
+    public ru.skypro.homework.dto.ad.Ads getAdsDto() {
         logger.info("Was invoked get all Ads method");
         ArrayList<Ad> ads = adRepository.findAll()
                 .stream()
                 .map(Ad::mapEntityToDto)
                 .collect(Collectors.toCollection(ArrayList::new));
         Integer countAd = ads.size();
-        return new Ads().getAds(countAd, ads);
+        return new ru.skypro.homework.dto.ad.Ads().getAds(countAd, ads);
     }
 
     @Override
@@ -80,20 +79,20 @@ public class AdsServiceImpl implements AdsService {
     }
 
     @Override
-    public Ads getAdsByUser(Authentication authentication) {
+    public ru.skypro.homework.dto.ad.Ads getAdsByUser(Authentication authentication) {
         logger.info("Was invoked get users Ads method");
         UserEntity user = adUtils.handleUser(authentication);
         ArrayList<Ad> ads = adRepository.findAllByAuthor(user.getId()).stream()
                 .map(Ad::mapEntityToDto)
                 .collect(Collectors.toCollection(ArrayList::new));
         Integer countAd = ads.size();
-        return new Ads().getAds(countAd, ads);
+        return new ru.skypro.homework.dto.ad.Ads().getAds(countAd, ads);
     }
 
     @Override
     public void updateImage(Integer id, MultipartFile image, Authentication authentication) throws IOException {
         logger.info("Was invoked update Ads image method");
-        AdEntity ad = adRepository.findById(id).get();
+        Ads ad = adRepository.findById(id).get();
         UserEntity user = adUtils.handleUser(authentication);
         String uniqueId = user.getEmail().concat("-").concat(ad.getTitle());
         String imagePath = new ImageMapper().mapFileToPath(image, uniqueId);
@@ -108,7 +107,7 @@ public class AdsServiceImpl implements AdsService {
     }
 
     @Override
-    public AdEntity findById(Integer id) {
+    public Ads findById(Integer id) {
         return adRepository.findById(id).get();
     }
 }

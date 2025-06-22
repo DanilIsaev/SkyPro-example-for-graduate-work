@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.skypro.homework.entity.AdEntity;
+import ru.skypro.homework.entity.Ads;
 import ru.skypro.homework.entity.UserEntity;
 
 
@@ -52,7 +52,7 @@ public class ExtendedAd {
     private String title;
 
     
-    public static ExtendedAd mapAdEntityToDto(AdEntity ad, UserEntity user) {
+    public static ExtendedAd mapAdEntityToDto(Ads ad, UserEntity user) {
         return ExtendedAd.builder()
                 .pk(ad.getPk())
                 .description(ad.getDescription())

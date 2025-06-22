@@ -14,11 +14,11 @@ import javax.persistence.*;
 @Table(name = "ads")
 @AllArgsConstructor
 @NoArgsConstructor
-public class AdEntity {
+public class Ads {
 
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "pk")
     private Integer pk;
 

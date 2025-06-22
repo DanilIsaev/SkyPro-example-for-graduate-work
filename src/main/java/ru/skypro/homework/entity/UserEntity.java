@@ -62,5 +62,5 @@ public class UserEntity {
 
     
     @OneToMany(mappedBy = "user")
-    private List<AdEntity> adsList;
+    private List<Ads> adsList;
 }

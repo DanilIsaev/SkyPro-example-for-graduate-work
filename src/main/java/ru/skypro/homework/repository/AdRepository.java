@@ -1,13 +1,13 @@
 package ru.skypro.homework.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.skypro.homework.entity.AdEntity;
+import ru.skypro.homework.entity.Ads;
 
 import java.util.ArrayList;
 
 
-public interface AdRepository extends JpaRepository<AdEntity, Integer> {
+public interface AdRepository extends JpaRepository<Ads, Integer> {
 
     
-    ArrayList<AdEntity> findAllByAuthor(Long author);
+    ArrayList<Ads> findAllByAuthor(Long author);
 }

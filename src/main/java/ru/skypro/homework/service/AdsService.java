@@ -3,10 +3,9 @@ package ru.skypro.homework.service;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.multipart.MultipartFile;
 import ru.skypro.homework.dto.ad.Ad;
-import ru.skypro.homework.dto.ad.Ads;
 import ru.skypro.homework.dto.ad.CreateOrUpdateAd;
 import ru.skypro.homework.dto.ad.ExtendedAd;
-import ru.skypro.homework.entity.AdEntity;
+import ru.skypro.homework.entity.Ads;
 
 import java.io.IOException;
 
@@ -21,7 +20,7 @@ public interface AdsService {
     ExtendedAd getExtendedAd(Integer id, Authentication authentication);
 
     
-    Ads getAdsDto();
+    ru.skypro.homework.dto.ad.Ads getAdsDto();
 
     
     void deleteAd(Integer id, Authentication authentication);
@@ -30,7 +29,7 @@ public interface AdsService {
     Ad updateAd(Integer id, CreateOrUpdateAd adDto, Authentication authentication);
 
     
-    Ads getAdsByUser(Authentication authentication);
+    ru.skypro.homework.dto.ad.Ads getAdsByUser(Authentication authentication);
 
     
     void updateImage(Integer id, MultipartFile image, Authentication authentication)
@@ -40,5 +39,5 @@ public interface AdsService {
     Boolean foundById(Integer id);
 
     
-    AdEntity findById(Integer id);
+    Ads findById(Integer id);
 }
