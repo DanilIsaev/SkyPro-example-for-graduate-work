@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.skypro.homework.entity.AdEntity;
+import ru.skypro.homework.entity.Ads;
 
 
 @Data
@@ -27,8 +27,8 @@ public class CreateOrUpdateAd {
     private String description;
 
     
-    public AdEntity mapDtoToAdEntity(String imageLink, Long author) {
-        return AdEntity.builder()
+    public Ads mapDtoToAdEntity(String imageLink, Long author) {
+        return Ads.builder()
                 .image(imageLink)
                 .price(price)
                 .description(description)
@@ -38,7 +38,7 @@ public class CreateOrUpdateAd {
     }
 
     
-    public Ad updateAd(AdEntity ad) {
+    public Ad updateAd(Ads ad) {
         ad.setTitle(title);
         ad.setPrice(price);
         ad.setDescription(description);

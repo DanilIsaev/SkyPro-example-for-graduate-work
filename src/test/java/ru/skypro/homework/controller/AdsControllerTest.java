@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import ru.skypro.homework.dto.ad.CreateOrUpdateAd;
-import ru.skypro.homework.entity.AdEntity;
+import ru.skypro.homework.entity.Ads;
 import ru.skypro.homework.entity.UserEntity;
 import ru.skypro.homework.repository.AdRepository;
 import ru.skypro.homework.service.impl.AdsServiceImpl;
@@ -91,7 +91,7 @@ class AdsControllerTest {
         //given
         Integer adId = 1;
 
-        AdEntity ad = AdEntity.builder()
+        Ads ad = Ads.builder()
                 .pk(1)
                 .author(1L)
                 .title("Test Ad")
@@ -117,19 +117,19 @@ class AdsControllerTest {
     @Test
     void getAdsDtoTest() throws Exception {
         //given
-        AdEntity ad1 = AdEntity.builder()
+        Ads ad1 = Ads.builder()
                 .pk(1)
                 .author(1L)
                 .title("Test Ad 1")
                 .description("Test Description 1").build();
 
-        AdEntity ad2 = AdEntity.builder()
+        Ads ad2 = Ads.builder()
                 .pk(2)
                 .author(1L)
                 .title("Test Ad 2")
                 .description("Test Description 2").build();
 
-        ArrayList<AdEntity> ads = new ArrayList<>(List.of(ad1, ad2));
+        ArrayList<Ads> ads = new ArrayList<>(List.of(ad1, ad2));
         //when
         when(adRepository.findAll()).thenReturn(ads);
         //then
@@ -153,7 +153,7 @@ class AdsControllerTest {
                 .username("username")
                 .build();
 
-        AdEntity ad = AdEntity.builder()
+        Ads ad = Ads.builder()
                 .pk(1)
                 .author(1L)
                 .title("Test Ad")
@@ -179,7 +179,7 @@ class AdsControllerTest {
                 .username("username")
                 .build();
 
-        AdEntity ad = AdEntity.builder()
+        Ads ad = Ads.builder()
                 .pk(1)
                 .author(1L)
                 .title("Test Ad")
@@ -192,7 +192,7 @@ class AdsControllerTest {
 
         //when
         when(adRepository.findById(any(Integer.class))).thenReturn(Optional.of(ad));
-        when(adRepository.save(any(AdEntity.class))).thenReturn(ad);
+        when(adRepository.save(any(Ads.class))).thenReturn(ad);
         when(adServiceUtils.handleUser(any(Authentication.class))).thenReturn(user);
         //then
         mockMvc.perform(MockMvcRequestBuilders.patch("/ads/{id}", adId)
@@ -213,19 +213,19 @@ class AdsControllerTest {
                 .username("username")
                 .build();
 
-        AdEntity ad1 = AdEntity.builder()
+        Ads ad1 = Ads.builder()
                 .pk(1)
                 .author(1L)
                 .title("Test Ad 1")
                 .description("Test Description 1").build();
 
-        AdEntity ad2 = AdEntity.builder()
+        Ads ad2 = Ads.builder()
                 .pk(2)
                 .author(1L)
                 .title("Test Ad 2")
                 .description("Test Description 2").build();
 
-        ArrayList<AdEntity> ads = new ArrayList<>(List.of(ad1, ad2));
+        ArrayList<Ads> ads = new ArrayList<>(List.of(ad1, ad2));
         //when
         when(adServiceUtils.handleUser(any(Authentication.class))).thenReturn(user);
         when(adRepository.findAllByAuthor(anyLong())).thenReturn(ads);
@@ -250,7 +250,7 @@ class AdsControllerTest {
                 .username("username")
                 .build();
 
-        AdEntity ad = AdEntity.builder()
+        Ads ad = Ads.builder()
                 .pk(1)
                 .author(1L)
                 .title("Test Ad")
